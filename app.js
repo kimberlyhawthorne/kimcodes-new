@@ -13,7 +13,7 @@ mongodb.MongoClient.connect(config.dbUri, function(err, db) {
 		console.log('error connecting to the db');
 	} else {
 		app.db = db; // save db connection
-		app.listen(3737);
+		app.listen(config.port);
 		addMiddleware();
 	}
 });

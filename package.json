@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Portfolio and blog for Kim Hawthorne, a front-end developer in Chicago.",
   "author": "Kim Hawthorne",
+  "main": "app.js",
   "devDependencies": {
     "css-concat": "0.0.4",
     "del": "^2.0.2",
@@ -34,8 +35,8 @@
     "mongodb": "^2.2.10"
   },
   "scripts" : {
-    "start" : "node app.js",
-    "postinstall" : "gulp"
-  }
+    "prestart" : "gulp",
+    "start" : "node app.js"
+  },
   "repository": "http://www.github.com/kimberlyhawthorne"
 }
