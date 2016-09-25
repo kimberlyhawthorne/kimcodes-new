@@ -4,5 +4,4 @@ public/
 *.php
 .DS_Store
 .htaccess
-config.js
 projects.json
