@@ -1,0 +1,289 @@
+@import "vendor/_normalize";
+@import "_mixins";
+@import "_variables";
+
+body {
+	background-color: $bgGray;
+	font-size: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Playfair Display', serif;
+	font-weight: 400;
+}
+
+p {
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+}
+
+a {
+	text-decoration: none;
+	color: $gray;
+	&:hover {
+		color: $pink;
+	}
+}
+
+.disclaimer {
+	font-size: 0.75em;
+	text-transform: none;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.outer-wrapper {
+	@include centerBlock;
+	width: 100%;
+	max-width: 1600px;
+}
+
+.inner-wrapper {
+	@include centerBlock;
+	width: 100%;
+	padding: 4em;
+	min-height: 30em;
+	text-align: center;
+}
+
+header {
+	background-color: $brown;
+	text-align: center;
+	padding: 1em;
+	h1 {
+		font-size: 1.2em;
+		color: #ffffff;
+		font-style: italic;
+		span {
+			font-family: 'Raleway', serif;
+			text-transform: uppercase;
+			font-style: normal;
+			color: $cream;
+		}
+	}
+}
+
+section {
+	@include centerBlock;
+	perspective: 100%;
+	width: 100%;
+	height: 30em;
+	.card {
+		// card flip transition
+		transition: 0.8s;
+		transform-style: preserve-3d;
+		height: 100%;
+		text-align: center;
+		position: relative;
+		.front, .back {
+			// hide back of flipped cards during animation
+			backface-visibility: hidden;
+			display: table;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+		}
+		.front {
+			z-index: 1;
+		}
+		.back {
+			// rotation for animation 
+			transform: rotateY(180deg);
+			background-color: yellow;
+		}
+	}
+}
+
+// divs to center card content
+.card-content-outer {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.card-content-inner {
+	@include centerBlock;
+	width: 90%;
+	padding: 0 2em;
+}
+
+// typography for card content
+.front, .back {
+	h2 {
+		font-size: 3.4em;
+		font-weight: 700;
+		margin: 0;
+
+	}
+	p {
+		font-size: 1em;
+		color: $gray;
+		span {
+			color: #fff;
+			font-weight: 700;
+		}
+	}
+}
+
+.back {
+	.live {
+		margin-top: 2em;
+
+		a {
+			font-weight: 700;
+			text-decoration: none;
+			@include linkAnimation($pink, $pink);
+		}
+	}
+}
+
+.flip {
+	// rotation for animation 
+	transform: rotateY(180deg);
+}
+
+// card hover effect 
+.card-content-outer:hover {
+	cursor: pointer;
+
+	a {
+		color: $pink;
+	}
+}
+
+#about {
+	background-color: $brown;
+	padding-top: 3em;
+	padding-bottom: 2em;
+	text-align: center;
+
+	.wrapper {
+		@include centerBlock;
+		width: 60%;
+		img {
+			@include centerBlock;
+			width: 10em;
+			margin-bottom: 2em;
+		}
+		& > p {
+			font-family: 'Playfair Display', serif;
+			font-size: 1.2em;
+			line-height: 2;
+			color: #fff;
+			text-transform: none;
+		}
+	}
+	.headshot {
+		img {
+			max-width: 10em;
+		}
+		p {
+			font-family: 'Playfair Display', serif;
+			font-size: 1.2em;
+			text-transform: none;
+			color: #fff;
+		}
+	}
+	.contact {
+		@include centerBlock;
+		text-align: center;
+		list-style: none;
+		margin-top: 2.8em;
+		padding-left: 0;
+
+		&:before {
+			content: "";
+			@include centerBlock;
+			display: block;
+			width: 50%;
+			border-top: 1px solid $cream;
+			margin-bottom: 1.8em;
+		}
+		li {
+			display: block;
+			margin: 0 0.4em 2em;
+			font-size: 1.2em;
+			a {
+				@include linkAnimation($cream, $cream);
+			}
+		}
+	}
+}
+
+footer {
+	background-color: #423f35;
+	font-size: 0.7em;
+	padding: 1em 0;
+	p {
+		color: #fff;
+		letter-spacing: 0.1em;
+		text-align: center;
+	}
+
+
+}
+
+// optimized background images
+#local-press {
+	@include cardImageTint("../img/localpress.jpg", 230, 188, 90);
+}
+
+#coffees {
+	@include cardImageTint("../img/18-coffees.jpg", 220, 206, 156, 0.6);
+}
+
+#chicago-fitness-center {
+	@include cardImageTint("../img/chicagofitnesscenter.jpg", 230, 188, 90);
+}
+
+#full-ahead-ventures {
+	@include cardImageTint("../img/fullaheadventures.jpg", 220, 206, 156, 0.6);
+}
+
+
+@media screen and (max-width: 600px) {
+	#local-press {
+		@include cardImageTint("../img/mobile/localpress.jpg", 230, 188, 90);
+	}
+
+	#coffees {
+		@include cardImageTint("../img/mobile/18-coffees.jpg", 220, 206, 156, 0.6);
+	}
+
+	#chicago-fitness-center {
+		@include cardImageTint("../img/mobile/chicagofitnesscenter.jpg", 230, 188, 90);
+	}
+
+	#full-ahead-ventures {
+		@include cardImageTint("../img/mobile/fullaheadventures.jpg", 220, 206, 156, 0.6);
+	}
+}
+
+
+
+// media queries
+@media screen and (min-width: 960px) {
+	body {
+		font-size: 120%;
+	}
+
+	.card-content-inner {
+		width: 80%;
+	}
+
+	#about {
+		.wrapper {
+			max-width: 800px;
+		}
+		.contact li {
+			display: inline-block;
+			padding: 0 2em;
+			font-size: 1em;
+		}
+	}
+}

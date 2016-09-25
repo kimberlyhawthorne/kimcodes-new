@@ -1,0 +1,25 @@
+{{#each projects}}
+<section id='{{id}}'>
+	<div class='card'>
+		<div class='front'>
+			<div class='card-content-outer'>
+				<div class='card-content-inner'>
+					<h2><a href='#'>{{title}}</a></h2>
+				</div>
+			</div>
+		</div>
+		<div class='back'>
+			<div class='card-content-outer'>
+				<div class='card-content-inner'>
+					<h2><a href='#'>{{title}}</a></h2>
+					<p>{{description}}</p>
+
+					<p class='live'>
+						<a href='{{url}}' target='_blank'>View live site</a>
+					</p>
+				</div>
+			</div>
+		</div>		
+	</div>
+</section>
+{{/each}}

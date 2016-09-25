@@ -1,0 +1,8 @@
+node_modules/
+public/
+*.css.map
+*.php
+.DS_Store
+.htaccess
+config.js
+projects.json
