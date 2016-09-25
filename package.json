@@ -4,7 +4,10 @@
   "description": "Portfolio and blog for Kim Hawthorne, a front-end developer in Chicago.",
   "author": "Kim Hawthorne",
   "main": "app.js",
-  "devDependencies": {
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "mongodb": "^2.2.10",
     "css-concat": "0.0.4",
     "del": "^2.0.2",
     "fs": "0.0.2",
@@ -28,11 +31,6 @@
     "path": "^0.12.7",
     "run-sequence": "^1.1.4",
     "yargs": "^3.29.0"
-  },
-  "dependencies": {
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
-    "mongodb": "^2.2.10"
   },
   "scripts" : {
     "prestart" : "gulp",
