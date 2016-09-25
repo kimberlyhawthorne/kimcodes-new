@@ -1,7 +1,6 @@
 var express = require('express'),
 	expresshbs = require('express-handlebars'),
 	mongodb = require('mongodb'),
-	sass = require('node-sass-middleware'),
 	path = require('path'),
 	config = require('./config.js'),
 	controllers = require('./controllers/index.js'),
